@@ -14,3 +14,16 @@ T("keyboard").on("keydown", function(e) {
     synth.noteOff(midi, 0);
   }
 }).start();
+
+$.getScript("bonsai.js",function(){
+  movie.on('message:ready', function() {
+  	// send a categorized message to the runner context
+  	movie.sendMessage('externalData', {
+  		nodeData: document.getElementById('keys').innerHTML
+  	});
+  	// send just a message to the runner context
+  	movie.sendMessage({
+  		bonsai: 'tree'
+  	});
+  });
+});

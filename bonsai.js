@@ -20,20 +20,3 @@ var movie = bonsai.run(document.getElementById('keys'),
 		}
 	}
 );
-
-movie.on('load', function() {
-	// receive event from the runner context
-	movie.on('message:ready', function() {
-		// send a categorized message to the runner context
-		movie.sendMessage('externalData', {
-			nodeData: document.getElementById('keys').innerHTML
-		});
-		// send just a message to the runner context
-		movie.sendMessage({
-			bonsai: 'tree'
-		});
-	});
-});
-
-$.getScript("sound.js",function(){
-});
