@@ -1,16 +1,17 @@
-var c = new Rect(0,0,30,200);
-var cs = new Rect(20,0,20,150);
-var d = new Rect(30,0,30,200);
-var ds = new Rect(50,0,20,150);
-stage.addChild(c,1);
-stage.addChild(cs,2);
-stage.addChild(d,1);
-stage.addChild(ds,2);
-c.fill('#ffd700');
-cs.fill('#ff0040');
-d.fill('#ffd700');
-ds.fill('#ff0040');
-c.stroke('#000000',3);
-cs.stroke('#000000',3);
-d.stroke('#000000',3);
-ds.stroke('#000000',3);
+var white = new Array(8);
+var black = new Array(5);
+for (i=0;i<8;++i){
+  white[i] = new Rect(30*i,0,30,200);
+  stage.addChild(white[i]);
+  white[i].fill('#ffd700');
+  white[i].stroke('#000000',3);
+}
+for (i=0;i<6;++i){
+  black[i] = new Rect(20+30*i,0,20,150);
+  stage.addChild(black[i]);
+  black[i].fill('#ff0040');
+  black[i].stroke('#000000',3);
+  if (i==1){
+    ++i;
+  }
+}
