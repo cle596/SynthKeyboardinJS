@@ -11,9 +11,6 @@ T("keyboard").on("keydown", function(e) {
 }).on("keyup", function(e) {
   var midi = keydict.at(e.keyCode);
   if (midi) {
-    synth.noteOff(midi, 600);
+    synth.noteOff(midi, 0);
   }
 }).start();
-
-$.getScript("bonsai.js",function(){
-});
