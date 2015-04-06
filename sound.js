@@ -1,4 +1,4 @@
-var synth = T("OscGen", {wave:"sin", mul:.6}).play();
+var synth = T("OscGen", {wave:"sin", mul:.25}).play();
 
 var keydict = T("ndict.key");
 var midicps = T("midicps");
