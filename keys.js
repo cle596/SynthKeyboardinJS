@@ -1,17 +1,17 @@
 var white = new Array(8);
 var black = new Array(5);
-for (i=0;i<8;++i){
-  white[i] = new Rect(30*i,0,30,200);
+for (i=0;i<15;++i){
+  white[i] = new Rect(15*i,0,15,100);
   stage.addChild(white[i]);
-  white[i].fill('#adff2f');
+  white[i].fill('#c0c0c0');
   white[i].stroke('#000000',3);
 }
-for (i=0;i<6;++i){
-  black[i] = new Rect(20+30*i,0,20,150);
+for (i=0;i<13;++i){
+  black[i] = new Rect(10+15*i,0,10,75);
   stage.addChild(black[i]);
-  black[i].fill('#fff68f');
+  black[i].fill('#465468');
   black[i].stroke('#000000',3);
-  if (i==1){
+  if (i==1 || i==5 || i==8){
     ++i;
   }
 }
