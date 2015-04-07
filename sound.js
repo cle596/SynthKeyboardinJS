@@ -1,5 +1,7 @@
 $.getScript("bonsai.js",function(){
-    var synth = T("OscGen", {wave:"wavc(fa23d70f)", mul:.25}).play();
+    var osc = T("osc");
+    var env = T("perc", {a:100,d:3000,s:1, r:5000});
+    var synth = T("OscGen", {env:env,wave:"wavc(11111111)", osc:osc, mul:1,poly:8}).play();
     var keydict = T("ndict.key");
     var midicps = T("midicps");
     T("keyboard").on("keydown", function(e) {
