@@ -17,6 +17,11 @@ var movie = bonsai.run(document.getElementById('keys'),
 					text.attr('fontSize','10');
 					white[0].fill('#afffff');
 				}
+				if (data.bonsai === 'shit') {
+					text.attr('textFillColor', 'black');
+					text.attr('fontSize','10');
+					white[0].fill('#adff2f');
+				}
 			});
 			stage.sendMessage('ready', {});
 		}
