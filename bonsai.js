@@ -12,8 +12,10 @@ var movie = bonsai.run(document.getElementById('keys'),
 				text.attr('text', data.nodeData);
 			});
 			stage.on('message', function(data) {
-				if (data.bonsai === 'tree') {
+				if (data.bonsai === 'kimchi') {
 					text.attr('textFillColor', 'black');
+					text.attr('fontSize','10');
+					white[0].fill('#afffff');
 				}
 			});
 			stage.sendMessage('ready', {});

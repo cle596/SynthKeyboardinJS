@@ -23,7 +23,7 @@ $.getScript("bonsai.js",function(){
   	});
   	// send just a message to the runner context
   	movie.sendMessage({
-  		bonsai: 'tree'
+  		bonsai: 'kimchi'
   	});
   });
 });
