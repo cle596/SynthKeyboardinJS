@@ -39,7 +39,7 @@ $.getScript("bonsai.js",function(){
     })*/.start();
 
 
-    T("rec", {timeout:1000}, synth).on("ended", function(buffer) {
+    T("rec", {timeout:10000}, synth).on("ended", function(buffer) {
       T("buffer", {buffer:buffer, loop:true}).play();
       this.pause();
     }).start().play();
