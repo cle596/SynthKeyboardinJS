@@ -37,4 +37,12 @@ $.getScript("bonsai.js",function(){
         synth.noteOffWithFreq(freq);
       }
     })*/.start();
+
+
+    T("rec", {timeout:1000}, synth).on("ended", function(buffer) {
+      T("buffer", {buffer:buffer, loop:true}).play();
+      this.pause();
+    }).start().play();
+
+
 });
