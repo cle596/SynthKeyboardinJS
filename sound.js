@@ -11,7 +11,7 @@ $.getScript("bonsai.js",function(){
       d = new Date();
       end = d.getTime()/1000;
       if (start!=0){
-        console.log(end-start);
+        //console.log(end-start);
         start = end;
       }
       else{
@@ -38,11 +38,31 @@ $.getScript("bonsai.js",function(){
       }
     })*/.start();
 
-
+    /*
     T("rec", {timeout:10000}, synth).on("ended", function(buffer) {
       T("buffer", {buffer:buffer, loop:true}).play();
       this.pause();
     }).start().play();
+    */
 
+
+
+    var rec = T("rec", {timeout:10000}, synth).on("ended", function(buffer) {
+      // export buffer?
+
+      // I am assuming that buffer is of format {buffer: bufferArray, samplerate: samplerate}
+
+
+      var buf = buffer.buffer[0],      // buf = a Float32Array of data
+          sr = buffer.samplerate    //sample rate of the data
+      ;
+
+      var dataview = encodeWAV(buf, sr);
+      var audioBlob = new Blob([dataview], { type: 'audio/wav' });
+
+      // do something with audioBlob, may be provide it as link to be downloaded
+    });
+
+    rec.start();
 
 });
