@@ -3,8 +3,8 @@ $.getScript("bonsai.js",function(){
     var start = 0;
     var end;
     var osc = T("osc");
-    var env = T("perc", {/*a:0,d:30,s:5,*/ r:100});
-    var synth = T("OscGen", {env:env,wave:"wavc(12345678)", osc:osc, mul:1,poly:8}).play();
+    var env = T("perc", {/*a:0,d:30,s:5,*/ r:1000});
+    var synth = T("OscGen", {env:env,wave:"wavc(ffffffff)", osc:osc, mul:1}).play();
     var keydict = T("ndict.key");
     var midicps = T("midicps");
     T("keyboard").on("keydown", function(e) {
@@ -17,15 +17,17 @@ $.getScript("bonsai.js",function(){
       else{
         start = end;
       }
+      /*
       movie.sendMessage({
         bonsai: 'kimchi'
       });
+      */
       var midi = keydict.at(e.keyCode);
       if (midi) {
         var freq = midicps.at(midi);
         synth.noteOnWithFreq(freq, 100);
       }
-    }).on("keyup", function(e) {
+    })/*.on("keyup", function(e) {
       movie.sendMessage({
         bonsai: 'shit'
       });
@@ -34,5 +36,5 @@ $.getScript("bonsai.js",function(){
         var freq = midicps.at(midi);
         synth.noteOffWithFreq(freq);
       }
-    }).start();
+    })*/.start();
 });
