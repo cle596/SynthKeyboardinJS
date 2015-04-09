@@ -56,7 +56,7 @@ $.getScript("bonsai.js",function(){
       var buf = buffer.buffer;      // buf = a Float32Array of data
       var sr = buffer.samplerate;    //sample rate of the data;
 
-      console.log(count);
+      //console.log(count);
 
       var dataview = encodeWAV(buf, sr);
       //console.log(dataview);
@@ -67,8 +67,8 @@ $.getScript("bonsai.js",function(){
       // do something with audioBlob, may be provide it as link to be downloaded
       //forceDownload(audioBlob,"shit.wav");
       //Recorder.forceDownload(audioBlob,"shit.wav");
-    });
-
-    rec.start();
+      this.pause();
+      Recorder.forceDownload(audioBlob,"shit.wav");
+    }).start();
 
 });
