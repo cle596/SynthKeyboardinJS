@@ -47,17 +47,19 @@ $.getScript("bonsai.js",function(){
 
 
 
-    var rec = T("rec", {timeout:10000}, synth).on("ended", function(buffer) {
+    var rec = T("rec", {timeout:2000}, synth).on("ended", function(buffer) {
       // export buffer?
 
       // I am assuming that buffer is of format {buffer: bufferArray, samplerate: samplerate}
 
+      //console.log(buffer);
+      var buf = buffer.buffer;      // buf = a Float32Array of data
+      var sr = buffer.samplerate;    //sample rate of the data;
 
-      var buf = buffer.buffer[0],      // buf = a Float32Array of data
-          sr = buffer.samplerate    //sample rate of the data
-      ;
+      //console.log(buf);
 
       var dataview = encodeWAV(buf, sr);
+      //console.log(dataview);
       var audioBlob = new Blob([dataview], { type: 'audio/wav' });
 
       // do something with audioBlob, may be provide it as link to be downloaded
