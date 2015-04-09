@@ -45,9 +45,9 @@ $.getScript("bonsai.js",function(){
     }).start().play();
     */
 
-
-
-    var rec = T("rec", {timeout:2000}, synth).on("ended", function(buffer) {
+    var count = 0;
+    var audioBlob;
+    var rec = T("rec", {timeout:1000}, synth).on("ended", function(buffer) {
       // export buffer?
 
       // I am assuming that buffer is of format {buffer: bufferArray, samplerate: samplerate}
@@ -56,13 +56,17 @@ $.getScript("bonsai.js",function(){
       var buf = buffer.buffer;      // buf = a Float32Array of data
       var sr = buffer.samplerate;    //sample rate of the data;
 
-      //console.log(buf);
+      console.log(count);
 
       var dataview = encodeWAV(buf, sr);
       //console.log(dataview);
-      var audioBlob = new Blob([dataview], { type: 'audio/wav' });
-
+      audioBlob = new Blob([dataview], { type: 'audio/wav' });
+      //console.log(audioBlob);
+      /*
+      jQuery('body').prepend(jQuery('<a/>').attr('href','data:tex/octet-stream;base64,SGVsbG8gV29ybGQh').text('Click to download'))*/
       // do something with audioBlob, may be provide it as link to be downloaded
+      //forceDownload(audioBlob,"shit.wav");
+      //Recorder.forceDownload(audioBlob,"shit.wav");
     });
 
     rec.start();
