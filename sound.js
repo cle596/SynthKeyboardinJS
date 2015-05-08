@@ -21,13 +21,17 @@ $.getScript("bonsai.js",function(){
 
     var count = 0;
     var audioBlob;
+    var check=0;
     var rec = T("rec", {timeout:10000}, synth).on("ended", function(buffer) {
       var buf = buffer.buffer;      // buf = a Float32Array of data
       var sr = buffer.samplerate;    //sample rate of the data;
       var dataview = encodeWAV(buf, sr);
       audioBlob = new Blob([dataview], { type: 'audio/wav' });
       this.pause();
-      Recorder.forceDownload(audioBlob,"shit.wav");
+      if(check==0){
+        Recorder.forceDownload(audioBlob,"shit.wav");
+        check=1;
+      }
     }).start();
 
 });
