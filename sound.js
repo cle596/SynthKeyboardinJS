@@ -1,4 +1,11 @@
 $.getScript("bonsai.js",function(){
+    $(window).resize(function(){
+      movie.sendMessage({
+        bonsai: 'resize',
+        w: $(document).width(),
+        h: $(document).height(),
+      });
+    });
     var osc = T("square");
     var env = T("perc", {a:1000,r:8000});
     var synth = T("OscGen", {wave:"wavc(ffffffff)",env:env,osc:osc, mul:.25}).play();

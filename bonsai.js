@@ -1,10 +1,12 @@
+var width=$(document).width();
+var height=$(document).height();
+var dim=[width,height];
 var movie = bonsai.run(document.getElementById('keys'),
 	'keys.js',
 	{
-		width: $(document).width(),
-		height: $(document).height(),
+		width: dim[0],
+		height: dim[1],
 		code: function() {
-			// receive data from the other side
 			var text = new Text();
 			text.attr('y',300);
 			text.addTo(stage);
@@ -17,6 +19,12 @@ var movie = bonsai.run(document.getElementById('keys'),
 					text.attr('fontSize','10');
 					white[0].fill('#afffff');
 				}
+			stage.on('message',function(data,w,h){
+				if(data.bonsai==='resize'){
+					dim[0]=w;
+					dim[1]=h;
+				}
+			});
 				if (data.bonsai === 'shit') {
 					text.attr('textFillColor', 'black');
 					text.attr('fontSize','10');
@@ -24,6 +32,7 @@ var movie = bonsai.run(document.getElementById('keys'),
 				}
 			});
 			stage.sendMessage('ready', {});
+			return dim;
 		}
 	}
 );
