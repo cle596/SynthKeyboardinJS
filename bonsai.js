@@ -1,8 +1,8 @@
 var movie = bonsai.run(document.getElementById('keys'),
 	'keys.js',
 	{
-		width: $(window).width(),
-		height: $(window).height(),
+		width: $(document).width(),
+		height: $(document).height(),
 		code: function() {
 			// receive data from the other side
 			var text = new Text();
