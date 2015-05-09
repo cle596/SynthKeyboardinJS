@@ -21,8 +21,9 @@ var movie = bonsai.run(document.getElementById('keys'),
 				}
 			stage.on('message',function(data,w,h){
 				if(data.bonsai==='resize'){
-					dim[0]=w;
-					dim[1]=h;
+					//dim[0]=w;
+					//dim[1]=h;
+					console.log(stage.options.width);
 				}
 			});
 				if (data.bonsai === 'shit') {
@@ -32,7 +33,6 @@ var movie = bonsai.run(document.getElementById('keys'),
 				}
 			});
 			stage.sendMessage('ready', {});
-			return dim;
 		}
 	}
 );
