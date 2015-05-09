@@ -1,7 +1,8 @@
 var width=$(document).width();
 var height=$(document).height();
 var dim=[width,height];
-var movie = bonsai.run(document.getElementById('keys'),
+var movie=
+	bonsai.run(document.getElementById('keys'),
 	'keys.js',
 	{
 		width: dim[0],
@@ -23,7 +24,6 @@ var movie = bonsai.run(document.getElementById('keys'),
 				if(data.bonsai==='resize'){
 					//dim[0]=w;
 					//dim[1]=h;
-					console.log(stage.options.width);
 				}
 			});
 				if (data.bonsai === 'shit') {
@@ -36,3 +36,10 @@ var movie = bonsai.run(document.getElementById('keys'),
 		}
 	}
 );
+
+window.onresize = function() {
+	console.log(width);
+	width/=2;
+};
+
+window.onresize();
